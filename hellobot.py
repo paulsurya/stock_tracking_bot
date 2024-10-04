@@ -6,13 +6,11 @@ botName = 'emfseofbot'
 bot = Bot(token=token)
 
 async def start_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('Hello world')
+    await update.message.reply_text('Welcome to **Trackify**! I\'m your go-to bot for real-time stock and forex market updates. Want to track a specific stock or currency? Just send me its name or ticker symbol. Need help? Type \'/help\' for a list of commands')
 
 async def wallpaper_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
     print("Sending Wallpaper")
     await bot.send_photo(update.message.chat.id,"\myPNG.png")
-
-async def track_command
 
 async def document_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
     await bot.send_document(update.message.chat.id,"C:\\Users\\pauls\\OneDrive\\Documents\\ARTIFICIAL INTELLIGENCE-mod.pdf")
@@ -21,7 +19,7 @@ async def error(update:Update,context:ContextTypes.DEFAULT_TYPE):
     print(f'Update:{update} caused error:{context.error}')
 
 def handle_response()->str:
-    text:str = update.message.text
+    text:str = update.message.text # type: ignore
     processed:str = text.lower()
     if 'fuck' in processed:
         return text+" u too"
