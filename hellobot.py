@@ -22,7 +22,7 @@ async def watchlist_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
     else:
         processed_list = ""
         for i in watchlist:
-            processed_list += str(len(watchlist)+1)+"."+i
+            processed_list += "- "+i
         await bot.sendMessage(chat_id=update.message.chat.id,text="Here are the stocks in your watchlist:"+processed_list,parse_mode="Markdown")
 
 async def add_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
@@ -31,7 +31,7 @@ async def add_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
         watchlist.append(symbol)
         await bot.sendMessage(chat_id=update.message.chat.id,text=symbol+" has been added to your watchlist:",parse_mode="Markdown")
     else:
-        await bot.sendMessage(chat_id=update.message.chat,text="Please a valid Ticker symbol.If you dont know what it is,then please visit [Yhaoo Finance](https://finance.yahoo.com/) to know more about Ticker symbol.",parse_mode="Markdown")
+        await bot.sendMessage(chat_id=update.message.chat.id,text="Please a valid Ticker symbol.If you dont know what it is,then please visit [Yhaoo Finance](https://finance.yahoo.com/) to know more about Ticker symbol.",parse_mode="Markdown")
 
 async def error(update:Update,context:ContextTypes.DEFAULT_TYPE):
     print(f'Update:{update} caused error:{context.error}')
