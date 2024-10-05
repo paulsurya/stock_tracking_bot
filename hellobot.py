@@ -29,6 +29,8 @@ async def watchlist_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
 async def add_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
     if context.args:
         symbol = context.args[0]
+        watchlist += symbol
+        await bot.sendMessage(chat_id=update.message.chat,text=symbol+" has been added to your watchlist:",parse_mode="Markdown")
     else:
         await bot.sendMessage(chat_id=update.message.chat,text="Please a valid Ticker symbol.If you dont know what it is,then please visit [Yhaoo Finance](https://finance.yahoo.com/) to know more about Ticker symbol.",parse_mode="Markdown")
 
