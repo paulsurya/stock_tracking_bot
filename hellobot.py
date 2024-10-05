@@ -6,7 +6,7 @@ botName = 'emfseofbot'
 bot = Bot(token=token)
 
 async def start_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('Welcome to **Trackify**! I\'m your go-to bot for real-time stock and forex market updates. Want to track a specific stock or currency? Just send me its name or ticker symbol. Need help? Type \'/help\' for a list of commands')
+    await update.message.reply_text('Welcome to \*Trackify* ! I\'m your go-to bot for real-time stock and forex market updates. Want to track a specific stock or currency? Just send me its name or ticker symbol. Need help? Type \'/help\' for a list of commands')
 
 async def wallpaper_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
     print("Sending Wallpaper")
