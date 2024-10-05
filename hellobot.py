@@ -1,6 +1,6 @@
 from telegram import Update,Bot
 from telegram.ext import Application,filters,CommandHandler,MessageHandler,ContextTypes
-import stock
+
 token = '7533063538:AAFn6U86nZM5GaS-nBodFODdxZba14zvHq4'
 botName = 'emfseofbot'
 bot = Bot(token=token)
