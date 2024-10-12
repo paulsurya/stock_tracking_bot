@@ -15,13 +15,13 @@ Its a small Telegram bot that can do the following things;
 
 These are the basic concepts that I used;
 
-**_Watchlist_**(:eyes:)
+**_Watchlist_**( :eyes: )
 
 > _Takes a ticker of a particular stock and adds it the users personalized watchlist and after 24 hrs it would update on the changes of those stocks:dollar:_
 >
 > > This feartue is not fullf implemented yet
 
-**_Portfolio_**(:scroll:)
+**_Portfolio_**( :scroll: )
 
 > _This command takes all the <u>Buys and Sells</u> of the users and records their to total profit. This is useful to analyse the users gains_
 >
