@@ -3,7 +3,7 @@ from datetime import datetime
 
 def get_type(ticker:str):
     stock = yf.Ticker(ticker)
-    if stock.info['quoteType'] == 'CURRENCY' or (len(ticker) == 6 and ticker.isalpha()):
+    if (len(ticker) == 6 and ticker.isalpha()):
         return True
     else:
         return False
