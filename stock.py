@@ -3,9 +3,9 @@ from datetime import datetime
 
 def get_type(ticker:str):
     stock = yf.Ticker(ticker)
-    if stock.info['quoteType'] == 'CURRENCY':
+    if stock.info['quoteType'] == 'CURRENCY' or (len(ticker) == 6 and ticker.isalpha()):
         return True
-    elif stock.info['quoteType'] == 'EQUITY':
+    else:
         return False
 
 def format_stock(ticker:str):
