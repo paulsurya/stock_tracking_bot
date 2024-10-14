@@ -1,10 +1,11 @@
 from telegram import Update,Bot
 from telegram.ext import Application,filters,CommandHandler,MessageHandler,ContextTypes
+import stock as s
 
 token = '7533063538:AAFn6U86nZM5GaS-nBodFODdxZba14zvHq4'
 botName = 'emfseofbot'
 bot = Bot(token=token)
-watchlist=[]
+watchlist={}
 
 async def start_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
     await bot.sendMessage(chat_id=update.message.chat. id,text='Welcome to *Trackify* ! I\'m your go-to bot for real-time stock and forex market updates. Want to track a specific stock or currency? Just send me its name or ticker symbol. Need help? Type \'/help\' for a list of commands',parse_mode='Markdown')
@@ -20,8 +21,22 @@ async def watchlist_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
     if len(watchlist)==0:
         await bot.sendMessage(chat_id=update.message.chat.id,text="Sorry, But the watchlist is empty right now.But you can add stocks to the watchlist by using the /add command.",parse_mode="Markdown")
     else:
-        processed_list = ""
-        for i in watcrkdown")
+        processed_str = ""
+        counter = 0
+        for i in watchlist[update.message.chat.id]:
+            counter += 1
+            processed_str += f"\n1:({i["Type"]}):-\n**Name**: {i["Name"]}\n**Purchase Price**: {i["Purchase Price"]}\n**Date Of Purchase**: {i["DOP"]}\n**Profit%**: {i["Forecast"]}"
+        await bot.sendMessage(chat_id=update.message.chat.id,text="Here are the stocks in your watchlist:"+processed_str,parse_mode="Markdown")
+
+
+async def add_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
+    if context.args:
+        symbol = context.args[0]
+        if s.get_type(symbol):
+            watchlist+={update.message.chat.id:s.format_currency(symbol)}
+        else:
+            watchlist+={update.message.chat.id:s.format_stock(symbol)}
+        await bot.sendMessage(chat_id=update.message.chat.id,text=symbol+" has been added to your watchlist",parse_mode="Markdown")
     else:
         await bot.sendMessage(chat_id=update.message.chat.id,text="Please a valid Ticker symbol.If you dont know what it is,then please visit [Yhaoo Finance](https://finance.yahoo.com/) to know more about Ticker symbol.",parse_mode="Markdown")
 
