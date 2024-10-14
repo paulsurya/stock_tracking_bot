@@ -1,6 +1,4 @@
-## Welcome to my First Python project
-
----
+## Welcome to my First Python project
 
 ### About :chart:Trackify:chart: :-
 
