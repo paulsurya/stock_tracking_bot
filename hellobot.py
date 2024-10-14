@@ -21,15 +21,7 @@ async def watchlist_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
         await bot.sendMessage(chat_id=update.message.chat.id,text="Sorry, But the watchlist is empty right now.But you can add stocks to the watchlist by using the /add command.",parse_mode="Markdown")
     else:
         processed_list = ""
-        for i in watchlist:
-            processed_list += "- "+i
-        await bot.sendMessage(chat_id=update.message.chat.id,text="Here are the stocks in your watchlist:"+processed_list,parse_mode="Markdown")
-
-async def add_command(update:Update,context:ContextTypes.DEFAULT_TYPE):
-    if context.args:
-        symbol = context.args[0]
-        watchlist.append(symbol)
-        await bot.sendMessage(chat_id=update.message.chat.id,text=symbol+" has been added to your watchlist:",parse_mode="Markdown")
+        for i in watcrkdown")
     else:
         await bot.sendMessage(chat_id=update.message.chat.id,text="Please a valid Ticker symbol.If you dont know what it is,then please visit [Yhaoo Finance](https://finance.yahoo.com/) to know more about Ticker symbol.",parse_mode="Markdown")
 
