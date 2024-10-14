@@ -25,7 +25,7 @@ async def watchlist_command(update:Update, context:ContextTypes.DEFAULT_TYPE):
         counter = 0
         for i in watchlist[update.message.chat.id]:
             counter += 1
-            processed_str += f"\n1:({i["Type"]}):-\n**Name**: {i["Name"]}\n**Purchase Price**: {i["Purchase Price"]}\n**Date Of Purchase**: {i["DOP"]}\n**Profit%**: {i["Forecast"]}"
+            processed_str += f"\n1:({i['Type']}):-\n**Name**: {i['Name']}\n**Purchase Price**: {i['Purchase Price']}\n**Date Of Purchase**: {i['DOP']}\n**Profit%**: {i['Forecast']}"
         await bot.sendMessage(chat_id=update.message.chat.id,text="Here are the stocks in your watchlist:"+processed_str,parse_mode="Markdown")
 
 
